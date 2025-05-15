@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sequel</string>
+    <string name="default_error">Unable to connect please retry</string>
+    <string name="browse">Browse</string>
+    <string name="moves">Moves</string>
+    <string name="director">Director :</string>
+    <string name="writer">Writer :</string>
+    <string name="actor">Actor :</string>
+    <string name="no_search_results_found">No Search Results Found!</string>
+</resources>

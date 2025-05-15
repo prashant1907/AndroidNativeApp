@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.test.testapplication.home.presentation.viewModel.HomeViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/black_tran"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/black_tran">
+
+            <include
+                android:id="@+id/shimmer"
+                layout="@layout/shimmer_movie_card"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/gibson_medium"
+                android:text="@{viewModel.movieName}"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:visibility="@{viewModel.dataVisibility}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtRatings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/gibson_regular"
+                android:text="@{viewModel.stars}"
+                android:visibility="@{viewModel.dataVisibility}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:drawableStart="@drawable/star"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+            <TextView
+                android:id="@+id/txtduration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/gibson_regular"
+                android:text="@{viewModel.duration}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="@{viewModel.dataVisibility}"
+                android:drawableStart="@drawable/time"
+                app:layout_constraintStart_toEndOf="@id/txtRatings"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+            <TextView
+                android:id="@+id/txtLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/gibson_regular"
+                android:text="@{viewModel.language}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:visibility="@{viewModel.dataVisibility}"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@id/txtRatings" />
+
+
+            <View
+                android:id="@+id/devider"
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:visibility="@{viewModel.dataVisibility}"
+                android:background="@color/shimmer_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLanguage" />
+
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/gibson_regular"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="5"
+                android:visibility="@{viewModel.dataVisibility}"
+                android:text="@{viewModel.movieDescription}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@id/devider" />
+
+
+            <TextView
+                android:id="@+id/txtDirectorLable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/gibson_regular"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="5"
+                android:visibility="@{viewModel.dataVisibility}"
+                android:text="@string/director"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription" />
+
+            <TextView
+                android:id="@+id/txtDirector"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/gibson_regular"
+                android:lineSpacingExtra="4dp"
+                android:text="@{viewModel.director}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="@{viewModel.dataVisibility}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtDirectorLable"
+                app:layout_constraintTop_toTopOf="@id/txtDirectorLable" />
+
+            <TextView
+                android:id="@+id/txtWriterLable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/gibson_regular"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="5"
+                android:text="@string/writer"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="@{viewModel.dataVisibility}"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@id/txtDirector" />
+
+            <TextView
+                android:id="@+id/txtWriter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/gibson_regular"
+                android:lineSpacingExtra="4dp"
+                android:text="@{viewModel.writer}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="@{viewModel.dataVisibility}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtWriterLable"
+                app:layout_constraintTop_toTopOf="@id/txtWriterLable" />
+
+
+            <TextView
+                android:id="@+id/txtActorLable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/gibson_regular"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="5"
+                android:text="@string/actor"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="@{viewModel.dataVisibility}"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@id/txtWriter" />
+
+            <TextView
+                android:id="@+id/txtActor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/gibson_regular"
+                android:lineSpacingExtra="4dp"
+                android:text="@{viewModel.actor}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="@{viewModel.dataVisibility}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtActorLable"
+                app:layout_constraintTop_toTopOf="@id/txtActorLable" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
+
